@@ -51,4 +51,44 @@ public class StringUtil {
         }
         return map;
     }
+
+    /**
+     * map转换为string
+     *
+     * @param map
+     * @return
+     */
+    public static String mapToString(Map<String, String> map) {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            stringBuilder
+                    .append(entry.getKey())
+                    .append("=")
+                    .append(entry.getValue())
+                    .append(";");
+        }
+        stringBuilder.deleteCharAt(stringBuilder.length() - 1);
+        return stringBuilder.toString();
+    }
+
+    /**
+     * string转为map
+     *
+     * @param str
+     * @return
+     */
+    public static Map<String, Object> stringToMap(String str) {
+        //根据逗号截取字符串数组
+        String[] str1 = str.split(",");
+        //创建Map对象
+        Map<String, Object> map = new HashMap<>(str1.length);
+        //循环加入map集合
+        for (String s : str1) {
+            //根据":"截取字符串数组
+            String[] str2 = s.split(":");
+            //str2[0]为KEY,str2[1]为值
+            map.put(str2[0], str2[1]);
+        }
+        return map;
+    }
 }

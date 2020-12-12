@@ -38,6 +38,10 @@ public class XposedUtil {
         return XposedPlus.get().findClass(className);
     }
 
+    public static Object callMethod(Class<?> clazz, String methodName, Object... args) {
+        return (Object) XposedHelpers.callMethod(clazz, methodName, args);
+    }
+
     public static Object callStaticMethod(String className, String methodName, Object... args) {
         return (Object) XposedHelpers.callStaticMethod(XposedUtil.findClass(className), methodName, args);
     }

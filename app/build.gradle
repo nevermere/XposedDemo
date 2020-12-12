@@ -1,5 +1,9 @@
 apply plugin: 'com.android.application'
 
+apply plugin: 'com.jakewharton.butterknife'
+
+apply plugin: 'com.yanzhenjie.andserver'
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
@@ -9,9 +13,14 @@ android {
         minSdkVersion 16
         targetSdkVersion 30
         versionCode 1
-        versionName "1.0.1"
+        versionName "1.1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
     }
 
     buildTypes {
@@ -36,7 +45,22 @@ dependencies {
     implementation 'com.github.sky-wei:xposed-javax:1.0.5'
     implementation 'com.github.sky-wei:xposed-common:1.0.4'
 
+    // ButterKnife
+    implementation 'com.jakewharton:butterknife:10.0.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
+
+    // AndServer
+    implementation 'com.yanzhenjie.andserver:api:2.1.6'
+    annotationProcessor 'com.yanzhenjie.andserver:processor:2.1.6'
+
+    // Toast
+    implementation 'com.hjq:toast:8.8'
+
+    // Gson
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+    // 网络请求工具类
     implementation 'com.zhy:okhttputils:2.6.2'
-    // EventBus
-    implementation 'org.greenrobot:eventbus:3.1.1'
+    // HttpLogging
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.2'
 }
