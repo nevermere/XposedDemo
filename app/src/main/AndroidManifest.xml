@@ -39,7 +39,7 @@
 
         <meta-data
             android:name="xposeddescription"
-            android:value="Xposed测试" />
+            android:value="Xposed" />
 
         <meta-data
             android:name="xposedminversion"
